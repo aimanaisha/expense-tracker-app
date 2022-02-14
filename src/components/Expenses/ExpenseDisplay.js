@@ -20,13 +20,15 @@ function ExpenseDisplay(props){
         <div>
             <Card className="expenses">
             <ExpensesFilter onSelectingYear={YearSelectHandler} selected={year} />
-            {filteredData.map((expense)=>(
+            {filteredData.length===0 && <p>Nothing to Show</p>}
+            {filteredData.length!==0 && filteredData.map((expense)=>(
                 <ExpenseItems 
                 key={expense.id}
                 title={expense.title} 
                 amount={expense.amount} 
                 date={expense.date} />
             ))}
+            
         </Card>
         </div>
         
