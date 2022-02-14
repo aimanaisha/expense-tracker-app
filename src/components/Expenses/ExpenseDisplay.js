@@ -16,19 +16,22 @@ function ExpenseDisplay(props){
     const filteredData =props.items.filter(eachElement=>{
         return eachElement.date.getFullYear().toString()===year
     })
+
+    let expenseContent = <p>Nothing to Show</p>
+    if(filteredData.length>0) {
+        expenseContent = filteredData.map((expense)=>(
+            <ExpenseItems 
+            key={expense.id}
+            title={expense.title} 
+            amount={expense.amount} 
+            date={expense.date} />
+        ))            
+    }
     return(
         <div>
             <Card className="expenses">
             <ExpensesFilter onSelectingYear={YearSelectHandler} selected={year} />
-            {filteredData.length===0 && <p>Nothing to Show</p>}
-            {filteredData.length!==0 && filteredData.map((expense)=>(
-                <ExpenseItems 
-                key={expense.id}
-                title={expense.title} 
-                amount={expense.amount} 
-                date={expense.date} />
-            ))}
-            
+            {expenseContent}
         </Card>
         </div>
         
