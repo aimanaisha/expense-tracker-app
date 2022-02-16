@@ -4,9 +4,9 @@ const ChartBar=(props)=>{
 
     let maxFillHeight = '0%';
 
-    if(props.max > 0){
+    if(props.maxValue> 0){
 
-        maxFillHeight = Math.round((props.value/props.maxValue))*100 + "%"
+        maxFillHeight = Math.round((props.value/props.maxValue)*100) + "%"
     }
 
     return(
@@ -20,3 +20,4 @@ const ChartBar=(props)=>{
         </div>
     )
 }
+export default ChartBar

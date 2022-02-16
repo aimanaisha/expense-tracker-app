@@ -3,6 +3,7 @@ import ExpenseList from './ExpenseList';
 import './ExpenseDisplay.css';
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpenseFilter";
+import ExpenseChart from './ExpenseChart';
 
 function ExpenseDisplay(props){
 
@@ -23,6 +24,7 @@ function ExpenseDisplay(props){
         <div>
             <Card className="expenses">
             <ExpensesFilter onSelectingYear={YearSelectHandler} selected={year} />
+            <ExpenseChart expenses={filteredData}/>
             <ExpenseList items={filteredData}/>
         </Card>
         </div>
